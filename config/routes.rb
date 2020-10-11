@@ -4,13 +4,12 @@ Rails.application.routes.draw do
   namespace 'api' do
       namespace 'v1' do
           resources :campaigns
-          resources :users do
+      end
+  end
+  resources :users do
     collection do
       post 'login'
     end
   end
-      end
-  end
-  
   
 end
