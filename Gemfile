@@ -6,10 +6,13 @@ ruby '2.7.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'bcrypt'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4',group: :development
 gem 'rails_12factor', group: :production
 gem 'jwt'
+gem 'simple_command'
+
 gem 'pg', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
@@ -22,10 +25,10 @@ gem 'puma', '~> 4.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'jbuilder'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
+gem 'devise'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 

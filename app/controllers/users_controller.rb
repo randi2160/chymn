@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
   
-  before_action :authenticate_request!, except: :create
+  before_action :authenticate_request!, except: [:create, :login] # Exclude this route from authentication
   before_action :set_user, only: [:show, :update, :destroy]
+
+  
+  
+  #before_action :authenticate_request!, except: :create
+ # before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
   def index
@@ -60,6 +65,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:username,:email, :password, :password_confirmation,:bio, :image)
     end
 end

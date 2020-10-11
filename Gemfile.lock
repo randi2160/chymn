@@ -63,6 +63,12 @@ GEM
     byebug (11.1.3)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    devise (4.7.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     erubi (1.9.0)
     faker (2.14.0)
       i18n (>= 1.6, < 2)
@@ -71,6 +77,8 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    jbuilder (2.10.1)
+      activesupport (>= 5.0.0)
     jwt (2.2.2)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -91,6 +99,7 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     pg (1.2.3)
     puma (4.3.6)
       nio4r (~> 2.0)
@@ -132,6 +141,10 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
+    simple_command (0.1.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -148,6 +161,8 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -160,13 +175,16 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.4.2)
   byebug
+  devise
   faker
+  jbuilder
   jwt
   listen (~> 3.2)
   pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rails_12factor
+  simple_command
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)
