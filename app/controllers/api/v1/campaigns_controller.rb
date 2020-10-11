@@ -1,6 +1,7 @@
 module Api
     module V1
-        class CampaignsController < ApplicationController
+        class CampaignsController < SecuredController
+            skip_before_action :authorize_request, only: [:index, :show]
             def index
                 campaigns = Campaign.order('created_at DESC');
                 render json: {status: 'SUCCESS', message: 'Loaded campaigns', data:campaigns},status: :ok
@@ -9,6 +10,8 @@ module Api
             def show
                 campaign = Campaign.find(params[:id])
                 render json: {status: 'SUCCESS', message: 'Loaded campaign', data:campaign},status: :ok
+            rescue ActiveRecord::RecordNotFound
+               head :not_found
             end
             
             def create
@@ -25,6 +28,7 @@ module Api
                 campaign = Campaign.find(params[:id])
                 campaign.destroy
                 render json: {status: 'SUCCESS', message: 'Deleted campaign', data:campaign},status: :ok
+                head :no_content
             end
         
             def update
@@ -41,7 +45,7 @@ module Api
             private
             
             def campaign_params
-                params.permit(:title, :description)
+                params.permit(:title, :description, :published)
             end
             
         end
