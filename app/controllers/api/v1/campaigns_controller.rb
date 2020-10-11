@@ -28,15 +28,15 @@ module Api
                 campaign = Campaign.find(params[:id])
                 campaign.destroy
                 render json: {status: 'SUCCESS', message: 'Deleted campaign', data:campaign},status: :ok
-                head :no_content
+                #head :no_content
             end
         
-          def delete
-                campaign = Campaign.find(params[:id])
-                campaign.delete
-                render json: {status: 'SUCCESS', message: 'Deleted campaign', data:campaign},status: :ok
-                head :no_content
-          end
+          #def delete
+                #campaign = Campaign.find(params[:id])
+               # campaign.delete
+               # render json: {status: 'SUCCESS', message: 'Deleted campaign', data:campaign},status: :ok
+               # head :no_content
+         # end
         
         
             def update
