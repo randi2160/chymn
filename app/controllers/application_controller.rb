@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
 require 'json_web_token'
 #before_action :underscore_params!
-before_action :authenticate_request!, except: :create
+#before_action :authenticate_request!, except: :create
 before_action :configure_permitted_parameters, if: :devise_controller?
 before_action :authenticate_user
 #before_action :authenticate_request
@@ -59,10 +59,10 @@ attr_reader :current_user
     end
   end
   
-  def authenticate_request
-    @current_user = AuthorizeApiRequest.call(request.headers).result
-    render json: { error: 'Not Authorized' }, status: 401 unless @current_user
-  end
+  #def authenticate_request
+    #@current_user = AuthorizeApiRequest.call(request.headers).result
+    #render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+  #end
   
   def authenticate_user!(options = {})
     head :unauthorized unless signed_in?
